@@ -1,0 +1,18 @@
+version: '3.5'
+
+services:
+  rsstodolist-server:
+    build:
+      context: .
+    container_name: rsstodolist-server
+    expose:
+      - "80"
+    restart: always
+    environment:
+      VIRTUAL_HOST: rsstodolist.johanvo.me
+    networks:
+      - johanvo-me-rproxy-net
+
+networks:
+  johanvo-me-rproxy-net:
+    external: true
